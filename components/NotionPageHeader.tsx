@@ -24,12 +24,14 @@ const ToggleThemeButton = () => {
   }, [toggleDarkMode])
 
   return (
+    
     <div
       className={cs('breadcrumb', 'button', !hasMounted && styles.hidden)}
       onClick={onToggleTheme}
     >
       {hasMounted && isDarkMode ? <IoMoonSharp /> : <IoSunnyOutline />}
     </div>
+    
   )
 }
 
@@ -43,11 +45,16 @@ export const NotionPageHeader: React.FC<{
   }
 
   return (
+    
+
     <header className='notion-header'>
       <div className='notion-nav-header'>
+                
+
         <Breadcrumbs block={block} rootOnly={true} />
 
         <div className='notion-nav-header-rhs breadcrumbs'>
+          <div className='nav-items-container'>
           {navigationLinks
             ?.map((link, index) => {
               if (!link.pageId && !link.url) {
@@ -79,6 +86,8 @@ export const NotionPageHeader: React.FC<{
             .filter(Boolean)}
 
           <ToggleThemeButton />
+          </div>
+
 
           {isSearchEnabled && <Search block={block} title={null} />}
         </div>
